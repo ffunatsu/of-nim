@@ -64,7 +64,7 @@ $ nim c -r examples/cpp_interop.nim
 1. Clone this repository (of-nim) somewhere
 2. Create your project directory (somewhere else)
 3. Copy config.nims from the of-nim
-4. Modify `projectRoot` of of-nim
+4. Modify `projectRoot` of config.nims
 5. (If there's dlls on the root of of-nim, also copy them)
 6. Finally, normally `nim c -r your_code.nim`
 
