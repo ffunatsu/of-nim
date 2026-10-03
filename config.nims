@@ -69,9 +69,9 @@ else:
   switch("passC", "-DOF_USING_STD_FS=1")
 
 switch("path", (projectRoot / "src"))
-switch("passC", "-Iglew")
-switch("passC", "-Iglfw")
-switch("passC", "-Icairo")
+switch("passC", "-I" & (projectRoot / "glew"))
+switch("passC", "-I" & (projectRoot / "glfw"))
+switch("passC", "-I" & (projectRoot / "cairo"))
 switch("passC", "-I" & (projectRoot / "include"))
 switch("passC", "-I" & (projectRoot / "include" / "utils"))
 switch("passC", "-I" & (projectRoot / "include" / "math"))
