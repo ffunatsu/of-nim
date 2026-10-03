@@ -1,10 +1,12 @@
 import std/strutils
 import std/strformat
 import std/os
+import std/macros
 # import std/private/ospaths2
 from std/sequtils import toSeq
+from os import `/`
 
-let projectRoot = parentDir(system.currentSourcePath)
+const projectRoot = parentDir(system.currentSourcePath)
 
 var detectedMainNim = ""
 var i = paramCount()
@@ -84,7 +86,17 @@ switch("passC", "-Iinclude/sound")
 switch("passC", "-Iinclude/video")
 switch("passC", "-Iutils")
 
-include "addons.nims"
+# https://stackoverflow.com/a/67173508/2696422
+macro includeNims(
+  arg: static[string]): untyped =
+  # ^ To pass value to macro use `static[<your-type>]`
+
+  newTree(nnkIncludeStmt, newLit(arg))
+  # Generates `include "your string"`
+
+const addons_nims_path = joinPath(projectRoot, "addons.nims")
+includeNims(addons_nims_path)
+# include "addons.nims"
 
 # load xxx.nim.addons
 let preferredAddons = selectAddonsFile(projectRoot, mainNimRelPath)
