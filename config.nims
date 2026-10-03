@@ -68,7 +68,7 @@ else:
   switch("cpp.options.always", "-std=c++17")
   switch("passC", "-DOF_USING_STD_FS=1")
 
-switch("path", "src")
+switch("path", (projectRoot / "src"))
 switch("passC", "-Iglew")
 switch("passC", "-Iglfw")
 switch("passC", "-Icairo")
