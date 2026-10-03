@@ -59,6 +59,15 @@ $ nim c -r examples/hello.nim
 $ nim c -r examples/cpp_interop.nim
 ```
 
+## How to use this as separated library
+
+1. Clone this repository (of-nim) somewhere
+2. Create your project directory (somewhere else)
+3. Copy config.nims from the of-nim
+4. Modify `projectRoot` of of-nim
+5. (If there's dlls on the root of of-nim, also copy them)
+6. Finally, normally `nim c -r your_code.nim`
+
 ## How to use ofx addons
 
 - At first, create `xxx.nim.addons` at side of the nim file.
